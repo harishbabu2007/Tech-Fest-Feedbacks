@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback Responses</title>
+  </head>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+        sans-serif;
+      padding: 30px;
+    }
+
+    .card {
+      margin: 20px;
+      width: 90%;
+      height: 100%;
+      padding: 20px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1),
+        0 4px 6px -4px rgb(0 0 0 / 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    h2 {
+      align-items: flex-end;
+    }
+  </style>
+  <body>
+    <div class="card">
+      <h1>Very Good</h1>
+      <h2>{{very_good}}</h2>
+    </div>
+    <div class="card">
+      <h1>Good</h1>
+      <h2>{{good}}</h2>
+    </div>
+    <div class="card">
+      <h1>Average</h1>
+      <h2>{{average}}</h2>
+    </div>
+    <div class="card">
+      <h1>Bad</h1>
+      <h2>{{bad}}</h2>
+    </div>
+    <div class="card">
+      <h1>Very Bad</h1>
+      <h2>{{very_bad}}</h2>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Feedback</title>
+  </head>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      transition: 0.3s;
+    }
+
+    .header {
+      text-align: center;
+    }
+
+    .btn-holder {
+      display: flex;
+      margin: 20px;
+      padding: 10px;
+      justify-content: space-evenly;
+      height: 70vh;
+      align-items: center;
+    }
+
+    button {
+      outline: none;
+      background: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: 100px;
+      transition: 0.3s;
+      padding: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+        0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+
+    button > p {
+      font-size: 20px;
+    }
+
+    button:hover {
+      transform: scale(1.2);
+      box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+    }
+  </style>
+  <body id="body">
+    <div class="header">
+      <h1>Please Leave Your Feedback</h1>
+    </div>
+    <div class="btn-holder">
+      <button id="green" class="green">
+        😁
+        <p>Very Good</p>
+      </button>
+      <button id="blue" class="blue">
+        😃
+        <p>Good</p>
+      </button>
+      <button id="yellow" class="yellow">
+        😐
+        <p>Average</p>
+      </button>
+      <button id="orange" class="orange">
+        😞
+        <p>Bad</p>
+      </button>
+      <button id="red" class="red">
+        ☹️
+        <p>Very Bad</p>
+      </button>
+    </div>
+  </body>
+  <script>
+    const green = document.getElementById("green");
+    const blue = document.getElementById("blue");
+    const yellow = document.getElementById("yellow");
+    const orange = document.getElementById("orange");
+    const red = document.getElementById("red");
+
+    function changeBackColour(colour) {
+      document.getElementById("body").style.background = colour;
+    }
+
+    green.addEventListener("mouseenter", function (e) {
+      changeBackColour("lawngreen");
+    });
+    green.addEventListener("mouseleave", function (e) {
+      changeBackColour("white");
+    });
+
+    blue.addEventListener("mouseenter", function (e) {
+      changeBackColour("aqua");
+    });
+    blue.addEventListener("mouseleave", function (e) {
+      changeBackColour("white");
+    });
+
+    yellow.addEventListener("mouseenter", function (e) {
+      changeBackColour("yellow");
+    });
+    yellow.addEventListener("mouseleave", function (e) {
+      changeBackColour("white");
+    });
+
+    orange.addEventListener("mouseenter", function (e) {
+      changeBackColour("orange");
+    });
+    orange.addEventListener("mouseleave", function (e) {
+      changeBackColour("white");
+    });
+
+    red.addEventListener("mouseenter", function (e) {
+      changeBackColour("red");
+    });
+    red.addEventListener("mouseleave", function (e) {
+      changeBackColour("white");
+    });
+  </script>
+  <script>
+    async function hit_api(hit) {
+      await fetch(`/api/${hit}`).then((res) =>
+        res.json().then((data) => {
+          if (data?.response === "done") {
+            alert("feedback recorded. Thank you");
+          }
+        })
+      );
+    }
+
+    green.addEventListener("click", function () {
+      hit_api("hitverygood");
+    });
+
+    blue.addEventListener("click", function () {
+      hit_api("hitgood");
+    });
+
+    yellow.addEventListener("click", function () {
+      hit_api("hitaverage");
+    });
+
+    orange.addEventListener("click", function () {
+      hit_api("hitbad");
+    });
+
+    red.addEventListener("click", function () {
+      hit_api("hitverybad");
+    });
+  </script>
+</html>
